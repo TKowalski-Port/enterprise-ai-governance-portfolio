@@ -1,1 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Governance Decision Dashboard</title>
+<style>
+:root{
+  --bg:#f3f4f6;
+  --panel:#ffffff;
+  --text:#18212f;
+  --muted:#667085;
+  --line:#d0d5dd;
+  --accent:#3157d5;
+  --accent-soft:#eef2ff;
+  --risk:#b42318;
+  --risk-soft:#fef3f2;
+  --risk-solid:#b42318;
+  --high:#c2410c;
+  --high-soft:#ffedd5;
+  --high-line:#fdba74;
+  --high-solid:#f97316;
+  --medium:#a16207;
+  --medium-soft:#fef9c3;
+  --medium-line:#fde047;
+  --medium-solid:#eab308;
+  --ok:#027a48;
+  --ok-soft:#ecfdf3;
+  --ok-solid:#027a48;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.wrapper{
+  width:min(1280px,calc(100% - 28px));
+  margin:0 auto;
+  padding:18px 0 24px;
+}
+.topline{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:12px;
+}
+.title-group h1{
+  margin:0;
+  font-size:clamp(1.45rem,2.5vw,2.1rem);
+  letter-spacing:-.02em;
+}
+.title-group p{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:.9rem;
+}
+.badge{
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--muted);
+  border-radius:6px;
+  padding:6px 9px;
+  font-size:.72rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.context-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:10px;
+}
+.context-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:12px 14px;
+  min-height:82px;
+}
+.context-card .label{
+  display:block;
+  color:var(--muted);
+  font-size:.7rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:5px;
+}
+.context-card strong{
+  display:block;
+  font-size:.98rem;
+  line-height:1.2;
+}
+.context-card small{
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+  font-size:.78rem;
+}
+.tabs{
+  display:flex;
+  gap:6px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:5px;
+  margin-bottom:10px;
+}
+.tabs button{
+  flex:1;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  padding:9px 12px;
+  font:inherit;
+  font-size:.85rem;
+  font-weight:800;
+  cursor:pointer;
+}
+.tabs button[aria-selected="true"]{
+  background:var(--accent);
+  color:white;
+}
+.view{display:none}
+.view.active{display:block}
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:1.35fr .85fr;
+  gap:10px;
+}
+.left-column,.right-column{display:grid;gap:10px}
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.metric{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:13px;
+  min-height:132px;
+}
+.metric.risk-red{
+  background:var(--risk-soft);
+  border-color:#f4b8b2;
+}
+.metric.risk-amber{
+  background:var(--medium-soft);
+  border-color:var(--medium-line);
+}
+.metric.risk-orange{
+  background:var(--high-soft);
+  border-color:var(--high-line);
+}
+.metric.risk-green{
+  background:var(--ok-soft);
+  border-color:#a6e3c2;
+}
+.metric .label{
+  color:var(--muted);
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.metric .value{
+  margin-top:7px;
+  font-size:1.45rem;
+  font-weight:900;
+  line-height:1.05;
+}
+.metric .value.red-text{color:var(--risk)}
+.metric .value.amber-text{color:var(--medium)}
+.metric .value.orange-text{color:var(--high)}
+.metric .value.green-text{color:var(--ok)}
+.metric .data-line{
+  margin-top:8px;
+  color:var(--text);
+  font-size:.76rem;
+  font-weight:800;
+  line-height:1.3;
+}
+.metric .status{
+  display:inline-block;
+  margin-top:7px;
+  padding:3px 7px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:800;
+}
+.red{background:var(--risk-soft);color:var(--risk)}
+.amber{background:var(--medium-soft);color:var(--medium)}
+.orange{background:var(--high-soft);color:var(--high)}
+.green{background:var(--ok-soft);color:var(--ok)}
+.metric p{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-size:.72rem;
+  line-height:1.3;
+}
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:13px;
+}
+.panel h2{
+  margin:0 0 8px;
+  font-size:.86rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.chart-wrap{display:grid;gap:8px}
+.risk-stack{
+  display:flex;
+  height:26px;
+  border-radius:6px;
+  overflow:hidden;
+  background:#eaecf0;
+  margin-bottom:14px;
+}
+.risk-seg{height:100%}
+.risk-legend{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px 16px;
+}
+.risk-legend-item{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:.8rem;
+  color:var(--muted);
+}
+.risk-legend-item b{
+  color:var(--text);
+  font-size:.86rem;
+  font-weight:900;
+  margin-left:auto;
+}
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.bar-row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  align-items:center;
+  gap:8px;
+}
+.bar-label{font-size:.78rem;color:var(--muted)}
+.bar-track{
+  height:22px;
+  background:#eaecf0;
+  overflow:hidden;
+  position:relative;
+}
+.bar-fill{
+  height:100%;
+  background:var(--accent);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding-right:8px;
+  font-size:.72rem;
+  font-weight:850;
+  min-width:0;
+}
+.bar-fill.redfill{background:var(--risk)}
+.bar-fill.amberfill{background:var(--medium-solid)}
+.bar-value{
+  display:none;
+}
+.progress{
+  height:10px;
+  background:#eaecf0;
+  margin:10px 0 6px;
+}
+.progress span{
+  display:block;
+  height:100%;
+  background:var(--accent);
+}
+.insights{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.insight{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:4px solid var(--risk);
+  padding:11px 12px;
+}
+.insight strong{
+  display:block;
+  font-size:.82rem;
+  margin-bottom:3px;
+}
+.insight p{
+  margin:0;
+  color:var(--muted);
+  font-size:.76rem;
+  line-height:1.35;
+}
+.reg-watch{
+  background:#252b36;
+  color:white;
+  padding:14px;
+  border:1px solid #3f4754;
+}
+.reg-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.reg-watch small{
+  display:block;
+  color:#f04438;
+  font-size:.68rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.date-badge{
+  background:#b42318;
+  color:white;
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:900;
+  white-space:nowrap;
+}
+.reg-watch strong{
+  display:block;
+  color:#f2f4f7;
+  font-size:.9rem;
+  margin-bottom:5px;
+}
+.reg-readiness{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:8px 0;
+}
+.reg-readiness span{
+  color:#f2f4f7;
+  font-size:.76rem;
+  font-weight:800;
+}
+.reg-readiness b{
+  color:#fff;
+  font-size:1rem;
+}
+.reg-watch p{
+  margin:0;
+  color:#d0d5dd;
+  font-size:.72rem;
+  line-height:1.35;
+}
 
+.reg-date-group{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:4px;
+}
+.date-badge{
+  background:#b42318;
+  color:white;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.74rem;
+  font-weight:900;
+  white-space:nowrap;
+  min-width:150px;
+  text-align:center;
+}
+.date-caption{
+  color:#d0d5dd;
+  font-size:.62rem;
+  line-height:1.2;
+  text-align:right;
+}
+.impact-label{
+  display:inline-block;
+  color:var(--risk);
+  border:1px solid #f4b8b2;
+  background:#fff5f4;
+  padding:2px 6px;
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+
+
+.info-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:16px;
+  height:16px;
+  margin-left:6px;
+  border:1px solid #98a2b3;
+  border-radius:50%;
+  color:#667085;
+  font-size:.62rem;
+  font-weight:900;
+  cursor:help;
+  vertical-align:middle;
+  background:#fff;
+}
+.panel-meta{
+  color:var(--muted);
+  font-size:.74rem;
+  margin-top:4px;
+}
+.reg-center{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:4px;
+}
+.reg-status{
+  color:#d0d5dd;
+  font-size:.66rem;
+  text-align:center;
+}
+.capability-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  font-size:.78rem;
+  color:var(--muted);
+}
+.capability-label span:last-child{
+  color:var(--text);
+  font-weight:800;
+}
+
+.footer{
+  margin-top:10px;
+  color:var(--muted);
+  text-align:center;
+  font-size:.7rem;
+}
+@media(max-width:980px){
+  .dashboard-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .context-grid,.metrics,.insights{grid-template-columns:1fr}
+  .tabs{flex-direction:column}
+  .bar-row{grid-template-columns:90px 1fr 24px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="topline">
+    <div class="title-group">
+      <h1>AI Governance Decision Dashboard</h1>
+      <p>Three audience views. One governed use case. Immediate decision visibility.</p>
+    </div>
+    <div class="badge">Illustrative Portfolio Artifact</div>
+  </div>
+
+  <section class="context-grid" aria-label="Use case context">
+    <div class="context-card">
+      <span class="label">Use Case</span>
+      <strong>Enterprise AI Assistant</strong>
+      <small>Policy and procedure development</small>
+    </div>
+    <div class="context-card">
+      <span class="label">Timeframe</span>
+      <strong>12 months</strong>
+      <small>Forward-looking risk review</small>
+    </div>
+    <div class="context-card">
+      <span class="label">Data Status</span>
+      <strong>Illustrative</strong>
+      <small>Portfolio demonstration only</small>
+    </div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="Dashboard audience views">
+    <button role="tab" aria-selected="true" data-target="exec">Board &amp; Executive</button>
+    <button role="tab" aria-selected="false" data-target="committee">AI Governance Committee</button>
+    <button role="tab" aria-selected="false" data-target="operations">Operations</button>
+  </nav>
+
+  <section id="exec" class="view active" role="tabpanel">
+    <div class="dashboard-grid">
+      <div class="left-column">
+        <div class="metrics">
+          <article class="metric risk-red">
+            <div class="label">Governed AI Adoption</div>
+            <div class="value red-text">Unauthorized</div>
+            <div class="data-line">This use case: added to inventory · not yet approved</div>
+            <p>AI demand is already exceeding the approved governance path.</p>
+          </article>
+          <article class="metric risk-orange">
+            <div class="label">Enterprise Exposure</div>
+            <div class="value orange-text">High</div>
+            <div class="data-line">Current risk · Target residual risk: Medium</div>
+            <p>Potential exposure spans reputation, financial, legal, privacy, security, and digital trust.</p>
+          </article>
+          <article class="metric risk-amber">
+            <div class="label">Human Impact</div>
+            <div class="value amber-text">Medium</div>
+            <div class="data-line">Potential indirect impact</div>
+            <p>Safeguards and reassessment remain pending.</p>
+          </article>
+        </div>
+        <div class="insights">
+          <article class="insight">
+            <span class="impact-label">Business Impact</span>
+            <strong>Unauthorized use signal</strong>
+            <p>Business demand is moving faster than approved tooling and governance, increasing the likelihood of repeated unmanaged AI use.</p>
+          </article>
+          <article class="insight">
+            <span class="impact-label">Business Impact</span>
+            <strong>Reputational risk signal</strong>
+            <p>Defective or uncontrolled policy content could reduce stakeholder confidence even where no confirmed disclosure has been established.</p>
+          </article>
+        </div>
+      </div>
+      <div class="right-column">
+        <div class="panel">
+          <h2>Risk Profile</h2>
+          <div class="risk-stack" role="img" aria-label="Risk profile: 0 Critical, 3 High, 2 Medium, 0 Low, out of 5 total risk scenarios">
+            <div class="risk-seg" style="width:60%;background:var(--high-solid)"></div>
+            <div class="risk-seg" style="width:40%;background:var(--medium-solid)"></div>
+          </div>
+          <div class="risk-legend">
+            <div class="risk-legend-item"><span class="dot" style="background:var(--risk-solid)"></span>Critical<b>0</b></div>
+            <div class="risk-legend-item"><span class="dot" style="background:var(--high-solid)"></span>High<b>3</b></div>
+            <div class="risk-legend-item"><span class="dot" style="background:var(--medium-solid)"></span>Medium<b>2</b></div>
+            <div class="risk-legend-item"><span class="dot" style="background:var(--ok-solid)"></span>Low<b>0</b></div>
+          </div>
+        </div>
+        <div class="reg-watch">
+          <div class="reg-head">
+            <small>Regulatory Monitor</small>
+            <div class="reg-center">
+              <span class="date-badge" style="background:#475467;">Not yet applicable</span>
+              <span class="date-caption" style="text-align:center;width:100%;">Not confirmed to apply</span>
+            </div>
+          </div>
+          <strong>EU AI Act: Not Confirmed to Apply</strong>
+          <p>High-risk system obligations were originally set for 2 August 2026 but a delay (proposed to 2 December 2027) was in progress as of mid-2026; treat the date as unconfirmed. This use case is scoped to United States jurisdiction with no confirmed EU users, operations, or activity. Reassess if any EU connection is identified, and verify the current legislative status before relying on any specific date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="committee" class="view" role="tabpanel" hidden>
+    <div class="dashboard-grid">
+      <div class="left-column">
+        <div class="metrics">
+          <article class="metric risk-red">
+            <div class="label">Policy Integrity Readiness</div>
+            <div class="value red-text">Not Ready</div>
+            <div class="data-line">Policy lifecycle safeguards pending</div>
+            <p>Validation, owner review, approval, versioning, and retention are not yet proven.</p>
+          </article>
+          <article class="metric risk-amber">
+            <div class="label">Corrective Action</div>
+            <div class="value amber-text">Open</div>
+            <div class="data-line">Investigation complete · Remediation open</div>
+            <p>Inventory registration is complete, but governance remediation remains open.</p>
+          </article>
+          <article class="metric risk-red">
+            <div class="label">Approval Conditions Met</div>
+            <div class="value red-text">0 of 5</div>
+            <div class="data-line">Conditions confirmed</div>
+            <p>No approval condition has been validated as complete.</p>
+          </article>
+        </div>
+        <div class="insights">
+          <article class="insight">
+            <span class="impact-label">Governance Impact</span>
+            <strong>Primary exposure: policy contamination</strong>
+            <p>Unvalidated AI output could alter approved control intent and become authoritative through controlled policy documents.</p>
+          </article>
+          <article class="insight">
+            <span class="impact-label">Governance Impact</span>
+            <strong>Possible governance-design failure</strong>
+            <p>Demand, access, training, policy clarity, and approved alternatives require review before the use case returns for decision.</p>
+          </article>
+        </div>
+      </div>
+      <div class="right-column">
+        <div class="panel">
+          <h2>Approval Readiness <span class="info-icon" title="Approval readiness measures whether required controls are implemented and operating, human review is embedded, monitoring and escalation are operating, and residual risk is reassessed as Medium within tolerance.">i</span></h2>
+          <div class="value red-text" style="font-size:1.6rem;font-weight:900">0%</div>
+          <div class="progress"><span style="width:0%"></span></div>
+          <div class="panel-meta">0 of 5 decision conditions confirmed</div>
+        </div>
+        <div class="reg-watch">
+          <div class="reg-head">
+            <small>Regulatory Monitor</small>
+            <div class="reg-center">
+              <span class="date-badge" style="background:#475467;">Not yet applicable</span>
+              <span class="date-caption" style="text-align:center;width:100%;">Not confirmed to apply</span>
+            </div>
+          </div>
+          <strong>EU AI Act: Not Confirmed to Apply</strong>
+          <p>High-risk system obligations were originally set for 2 August 2026 but a delay (proposed to 2 December 2027) was in progress as of mid-2026; treat the date as unconfirmed. This use case is scoped to United States jurisdiction with no confirmed EU users, operations, or activity. Reassess if any EU connection is identified, and verify the current legislative status before relying on any specific date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="operations" class="view" role="tabpanel" hidden>
+    <div class="dashboard-grid">
+      <div class="left-column">
+        <div class="metrics">
+          <article class="metric risk-amber">
+            <div class="label">Unauthorized-Use Remediation</div>
+            <div class="value amber-text">Pending</div>
+            <div class="data-line">Investigation complete · Controls pending</div>
+            <p>Corrective controls and recurrence monitoring remain unvalidated.</p>
+          </article>
+          <article class="metric risk-red">
+            <div class="label">Policy Document Integrity</div>
+            <div class="value red-text">Not Operational</div>
+            <div class="data-line">Execution gap</div>
+            <p>Review, comparison, approval, versioning, and retention must be embedded.</p>
+          </article>
+          <article class="metric risk-red">
+            <div class="label">Operational Monitoring</div>
+            <div class="value red-text">Not Validated</div>
+            <div class="data-line">Evidence readiness pending</div>
+            <p>Detection, escalation, exceptions, change alerts, suspension, and retirement require proof.</p>
+          </article>
+        </div>
+        <div class="insights">
+          <article class="insight">
+            <span class="impact-label">Operational Impact</span>
+            <strong>Scope the information exposure before closure</strong>
+            <p>Confirm what content was submitted, which service was used, and whether retention or reuse occurred.</p>
+          </article>
+          <article class="insight">
+            <span class="impact-label">Operational Impact</span>
+            <strong>Registration does not prove safe operation</strong>
+            <p>Closure requires approved tooling, preventive guardrails, monitoring, retained evidence, and demonstrated operating effectiveness.</p>
+          </article>
+        </div>
+      </div>
+      <div class="right-column">
+        <div class="panel">
+          <h2>Capability Readiness</h2>
+          <div class="chart-wrap">
+            <div class="capability-label"><span>Remediation</span><span class="status amber" style="color:var(--medium)!important">In progress</span></div>
+            <div class="capability-label"><span>Document Integrity</span><span class="status red" style="color:var(--risk)!important">Not started</span></div>
+            <div class="capability-label"><span>Monitoring</span><span class="status red" style="color:var(--risk)!important">Not started</span></div>
+          </div>
+        </div>
+        <div class="reg-watch">
+          <div class="reg-head">
+            <small>Regulatory Monitor</small>
+            <div class="reg-center">
+              <span class="date-badge" style="background:#475467;">Not yet applicable</span>
+              <span class="date-caption" style="text-align:center;width:100%;">Not confirmed to apply</span>
+            </div>
+          </div>
+          <strong>EU AI Act: Not Confirmed to Apply</strong>
+          <p>High-risk system obligations were originally set for 2 August 2026 but a delay (proposed to 2 December 2027) was in progress as of mid-2026; treat the date as unconfirmed. This use case is scoped to United States jurisdiction with no confirmed EU users, operations, or activity. Reassess if any EU connection is identified, and verify the current legislative status before relying on any specific date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© 2026 Tom Kowalski. All rights reserved. This portfolio artifact may not be copied, modified, redistributed, or presented as another party’s work without written permission.</div>
+</div>
+
+<script>
+const tabs=[...document.querySelectorAll('[role="tab"]')];
+const views=[...document.querySelectorAll('[role="tabpanel"]')];
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  tabs.forEach(t=>t.setAttribute('aria-selected',String(t===tab)));
+  views.forEach(v=>{
+    const active=v.id===tab.dataset.target;
+    v.classList.toggle('active',active);
+    v.hidden=!active;
+  });
+}));
+</script>
+</body>
+</html>
