@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Illustrates how organizations govern and use AI responsibly, 
+    make informed decisions, manage risk, and maintain accountability."
+  >
+
+  <meta property="og:title" content="Enterprise AI Governance Portfolio">
+  <meta
+    property="og:description"
+    content="Illustrates how organizations govern and use AI responsibly, make informed decisions, manage risk, and maintain accountability. "
+  >
+  <meta property="og:type" content="website">
+
+<link
+  rel="icon"
+  href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2210%22 fill=%22%23150C25%22/><text x=%2232%22 y=%2241%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 font-weight=%22700%22 fill=%22%23BCA36E%22>AI</text></svg>"
+>
+
+  <title>Enterprise AI Governance Portfolio</title>
+
+  <style>
+    :root {
+      --purple: #150C25;
+      --charcoal: #161F28;
+      --off-white: #D9DAD0;
+      --gold: #BCA36E;
+      --gold-hover: #A68F5C;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      margin: 0;
+      background-color: var(--purple);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--off-white);
+      background-color: var(--purple);
+    }
+
+    header,
+    main,
+    footer {
+      background-color: var(--purple);
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.site-nav a {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+    
+    header {
+      padding: 72px 0 52px;
+      border-bottom: 1px solid rgba(217, 218, 208, 0.2);
+    }
+
+h1 {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.1;
+}
+
+.intro {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+    
+    .hero-actions {
+  text-align: center;
+}
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      color: var(--purple);
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--gold);
+      border-radius: 6px;
+      transition: background-color 0.15s ease;
+    }
+
+    .button:hover {
+      background-color: var(--gold-hover);
+    }
+
+    .button:focus-visible,
+    .card a:focus-visible,
+    footer a:focus-visible {
+      outline: 3px solid var(--off-white);
+      outline-offset: 3px;
+    }
+
+    main {
+      padding: 52px 0 64px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+    }
+    
+    .section-title {
+  text-align: center;
+}
+
+   .section-intro {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+   .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+.about {
+  max-width: 760px;
+  margin: 64px auto 0;
+}
+
+.about p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.cta-section {
+  max-width: 760px;
+  margin: 64px auto 0;
+  padding: 32px;
+  text-align: center;
+  background-color: var(--charcoal);
+  border: 1px solid rgba(217, 218, 208, 0.18);
+  border-radius: 8px;
+}
+
+.cta-section p {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  font-size: 1.05rem;
+}
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 228px;
+      height: 100%;
+      padding: 22px;
+      background-color: var(--charcoal);
+      border: 1px solid rgba(217, 218, 208, 0.18);
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+
+    .card p {
+      flex: 1;
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+    }
+
+    .card a {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: auto;
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid rgba(217, 218, 208, 0.2);
+    }
+
+    footer a {
+      margin-right: 18px;
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+.dashboard-note {
+  margin: 10px auto 0;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-style: italic;
+  text-align: center;
+  white-space: nowrap;
+}
+   @media (max-width: 600px) {
+  .site-nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    margin-bottom: 36px;
+  }
+
+  header {
+    padding: 52px 0 40px;
+  }
+
+  main {
+    padding: 40px 0 52px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 0;
+  }
+
+  footer a {
+    display: block;
+    margin: 0 0 10px;
+  }
+}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="README.html">Overview</a>
+      <a href="#artifacts">Artifacts</a>
+      <a href="dashboards/AI-Governance-Decision-Dashboard-Final.html">Dashboard</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <h1>Enterprise AI Governance Portfolio</h1>
+
+<p class="intro">
+  Illustrates how organizations govern and use AI responsibly, make informed decisions, manage risk, and maintain accountability.
+</p>
+
+<div class="hero-actions">
+  <a
+    class="button"
+    href="dashboards/AI-Governance-Decision-Dashboard-Final.html"
+  >
+    Open Interactive Governance Dashboard
+  </a>
+
+  <p class="dashboard-note">
+    Executive, business, and operational governance reporting
+  </p>
+</div>
+
+</div>
+</header>
+
+<main id="artifacts">
+    <div class="container">
+   <h2 class="section-title">Portfolio Artifacts</h2>
+
+      <p class="section-intro">
+        Select an artifact to review the governance framework.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>AI Governance Policy</h3>
+          <p>Establishes requirements, responsibilities, and accountability for the authorized and responsible use of AI.</p>
+          <a href="artifacts/Policy.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>Governance Architecture</h3>
+          <p>Defines governance roles, authority, oversight, and reporting structure.</p>
+          <a href="artifacts/Governance-Architecture.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>Operating Model</h3>
+          <p>Shows how governance inputs, decisions, and monitoring operate as a continuous cycle.</p>
+          <a href="artifacts/Operating-Model.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>Governance Workflow</h3>
+          <p>End-to-end intake, assessment, approval, monitoring, and escalation process.</p>
+          <a href="artifacts/Workflow.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>Risk Assessment</h3>
+          <p>Risk scenarios, ratings, controls, residual risk, and governance decisions.</p>
+          <a href="artifacts/Risk-Assessment.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>Exceptions and Escalation</h3>
+          <p>Requirements for documenting, approving, monitoring, and escalating exceptions.</p>
+          <a href="artifacts/Exceptions-and-Escalation.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>Control and Framework Crosswalk</h3>
+          <p>Traceability between portfolio controls, NIST AI RMF, and NIST CSF.</p>
+          <a href="artifacts/Control-and-Framework-Crosswalk.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>AI Governance Dashboard</h3>
+          <p>Governance reporting views for executive, business, and operational oversight.</p>
+          <a href="artifacts/AI-Governance-Dashboard.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>Decision Record</h3>
+          <p>Documented decision, rationale, conditions, ownership, and follow-up.</p>
+          <a href="artifacts/Decision-Record.html">View artifact</a>
+        </article>
+
+        <article class="card">
+          <h3>References</h3>
+          <p>Framework sources and supporting governance references.</p>
+          <a href="artifacts/References.html">View artifact</a>
+        </article>
+           </div>
+
+
+      <section class="about" id="about">
+        <h2>About</h2>
+
+        <p>
+          Tom Kowalski's career spans public relations, media intelligence, information security, and enterprise risk. 
+          Across those disciplines, he noticed a consistent gap: technical, operational, and reputational risks are assessed in isolation. 
+          AI now accelerates all three, and compresses the time leaders have to respond. AI governance closes that gap, bringing all three 
+          together so leaders can decide quickly when the stakes are highest. He is a Certified Cybersecurity Strategist through 
+          Georgetown University and holds a BS in Marketing from Central Connecticut State University.
+        </p>
+      </section>
+
+      <section class="cta-section" id="contact">
+        <h2>How I Help</h2>
+
+        <p>
+       I help organizations build practical strategies, with clear ownership, accountability, and oversight, 
+       enabling risk-informed decisions that drive innovation and adoption without exposing the organization to unnecessary risk. 
+        </p>
+
+        <a
+          class="button"
+          href="https://www.linkedin.com/in/kowalskitom1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Connect on LinkedIn
+        </a>
+      </section>
+    </div>
+  </main>
+  <footer>
+  <div class="container">
+    <p>© 2026 Tom Kowalski. All rights reserved.</p>
+
+    <p>
+      <a href="README.html">Portfolio Overview</a>
+      <a href="LICENSE.html">License</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
