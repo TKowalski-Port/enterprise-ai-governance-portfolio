@@ -53,21 +53,17 @@ Follow this policy and report suspected violations or risks.
 
 ## **Policy**
 
-<div style="margin-left: 2rem;">
+1. AI systems and tools must support an authorized business purpose.
 
-1. &nbsp; &nbsp; AI systems and tools must support an authorized business purpose.
+2. AI systems and tools must comply with applicable laws, regulations, and organizational requirements.
 
-2. &nbsp; &nbsp; AI systems and tools must comply with applicable laws, regulations, and organizational requirements.
+3. AI-related risks must be assessed before use, following material change, and at defined periodic intervals.
 
-3. &nbsp; &nbsp; AI-related risks must be assessed before use, following material change, and at defined periodic intervals.
+4. Humans must remain accountable for AI-informed decisions and actions.
 
-4. &nbsp; &nbsp; Humans must remain accountable for AI-informed decisions and actions.
+5. AI systems and tools must be used consistently with company values, as defined in the Code of Conduct and Ethics policies.
 
-5. &nbsp; &nbsp; AI systems and tools must be used consistently with company values, as defined in the Code of Conduct and Ethics policies.
-
-6. &nbsp; &nbsp; AI systems and tools must follow the approved lifecycle from intake through retirement, including required human review and approval.
-
-</div>
+6. AI systems and tools must follow the approved lifecycle from intake through retirement, including required human review and approval.
  
 ## **Compliance**
 
