@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>{{ page.title | default: "Enterprise AI Governance Portfolio" }}</title>
+
+  <link rel="stylesheet" href="{{ '/assets/css/artifact.css' | relative_url }}">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="back-link" href="{{ '/' | relative_url }}">
+        ← Back to Portfolio
+      </a>
+    </div>
+  </header>
+
+  <main class="container{% if page.wide %} container-wide{% endif %}">
+<article class="artifact">
+  <h1>{{ page.title }}</h1>
+
+  <div class="artifact-meta">
+  {% if page.audience %}
+    <p><strong>Audience:</strong> {{ page.audience }}</p>
+  {% endif %}
+
+  {% if page.classification %}
+    <p><strong>Classification:</strong> {{ page.classification }}</p>
+  {% endif %}
+
+  {% if page.policy_owner %}
+    <p><strong>Policy Owner:</strong> {{ page.policy_owner }}</p>
+  {% endif %}
+
+  {% if page.approved_by %}
+    <p><strong>Approved By:</strong> {{ page.approved_by }}</p>
+  {% endif %}
+
+  {% if page.approval_date %}
+    <p><strong>Approval Date:</strong> {{ page.approval_date }}</p>
+  {% endif %}
+
+  {% if page.effective_date %}
+    <p><strong>Effective Date:</strong> {{ page.effective_date }}</p>
+  {% endif %}
+
+  {% if page.review_cycle %}
+    <p><strong>Review Cycle:</strong> {{ page.review_cycle }}</p>
+  {% endif %}
+
+  {% if page.supersedes %}
+    <p><strong>Supersedes:</strong> {{ page.supersedes }}</p>
+  {% endif %}
+
+  {% if page.decision_state %}
+    <p><strong>Decision State:</strong> {{ page.decision_state }}</p>
+  {% endif %}
+
+  {% if page.assessment_period %}
+    <p><strong>Assessment Period:</strong> {{ page.assessment_period }}</p>
+  {% endif %}
+
+  {% if page.data_status %}
+    <p><strong>Data Status:</strong> {{ page.data_status }}</p>
+  {% endif %}
+</div>
+  {{ content }}
+</article>
+  </main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Tom Kowalski. All rights reserved.</p>
+    <p>
+      <a href="{{ '/LICENSE.html' | relative_url }}">License</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
