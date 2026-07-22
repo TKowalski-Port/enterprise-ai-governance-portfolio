@@ -1,6 +1,6 @@
 ---
 layout: artifact
-title: AI Governance Portfolio
+title: Enterprise AI Governance Portfolio
 audience: Hiring Managers, Executive Leadership, GRC Practitioners
 classification: Public
 ---
@@ -48,9 +48,9 @@ The governance objective is to establish a practical, risk-based system that:
 
 - **Operations, Business, and Technology Leaders:** Open the [Interactive Dashboard](dashboards/AI-Governance-Decision-Dashboard-Final.html) and select the **Operations** view. Then review the [Policy](artifacts/Policy.md), [Workflow](artifacts/Workflow.md), and [Exceptions and Escalation Process](artifacts/Exceptions-and-Escalation.md).
   
-- **Readers who prefer a static summary:** Review the [AI Governance Executive Dashboard](artifacts/AI-Governance-Dashboard.md).
+- **Readers who prefer a static summary:** Review the [AI Governance Risk Dashboard](artifacts/AI-Governance-Dashboard.md).
 
-**Recommended order:** [Risk Assessment](artifacts/Risk-Assessment.md) → [Governance Architecture](artifacts/Governance-Architecture.md) → [Operating Model](artifacts/Operating-Model.md) → [Policy](artifacts/Policy.md) → [Workflow](artifacts/Workflow.md) → [Exceptions and Escalation Process](artifacts/Exceptions-and-Escalation.md) → [Control Crosswalk](artifacts/Control-and-Framework-Crosswalk.md) → [Executive Dashboard](artifacts/AI-Governance-Dashboard.md) → [Interactive Dashboard](dashboards/AI-Governance-Decision-Dashboard-Final.html) → [Decision Record](artifacts/Decision-Record.md) → [References](artifacts/References.md)
+**Recommended order:** [Risk Assessment](artifacts/Risk-Assessment.md) → [Governance Architecture](artifacts/Governance-Architecture.md) → [Operating Model](artifacts/Operating-Model.md) → [Policy](artifacts/Policy.md) → [Workflow](artifacts/Workflow.md) → [Exceptions and Escalation Process](artifacts/Exceptions-and-Escalation.md) → [Control Crosswalk](artifacts/Control-and-Framework-Crosswalk.md) → [AI Governance Risk Dashboard](artifacts/AI-Governance-Dashboard.md) → [Interactive Dashboard](dashboards/AI-Governance-Decision-Dashboard-Final.html) → [Decision Record](artifacts/Decision-Record.md) → [References](artifacts/References.md)
 
 ## **Artifacts**
 
@@ -82,17 +82,13 @@ Defines how deviations are reviewed, decided, escalated, monitored, and closed.
 
 Maps selected Enterprise Company controls to applicable NIST CSF 2.0 and NIST AI RMF 1.0 outcomes.
 
+### [AI Governance Risk Dashboard](artifacts/AI-Governance-Dashboard.md)
+
+Summarizes the current risk, control status, business impact, and governance decision for the Enterprise AI Assistant use case.
+
 ### [Interactive Dashboard](dashboards/AI-Governance-Decision-Dashboard-Final.html)
 
-Provides the static management summary, including status, management attention, control status, current exposure, business impact, and the target post-control state.
-
-### [Interactive Dashboard](dashboards/AI-Governance-Decision-Dashboard-Final.html)
-
-Translates the same governed use-case data into three audience-specific decision views:
-
-- **Board & Executive:** governed AI adoption, enterprise exposure, human impact, business impacts, and regulatory monitoring;
-- **AI Governance Committee:** policy integrity, corrective action, approval readiness, and governance impacts;
-- **Operations:** remediation status, document integrity, monitoring readiness, and operational impacts.
+Provides interactive views of AI risks for Executive Leadership, the AI Governance Committee, and Business and Technology Owners.
 
 ### [AI Governance Decision Record](artifacts/Decision-Record.md)
 

@@ -6,14 +6,14 @@
 
   <meta
     name="description"
-    content="Illustrates how organizations govern and use AI responsibly, 
-    make informed decisions, manage risk, and maintain accountability."
+    content="A practical enterprise AI governance portfolio demonstrating risk assessment, 
+    accountability, decision-making, controls, and oversight across the AI lifecycle."
   >
 
   <meta property="og:title" content="Enterprise AI Governance Portfolio">
   <meta
     property="og:description"
-    content="Illustrates how organizations govern and use AI responsibly, make informed decisions, manage risk, and maintain accountability. "
+    content="A practical enterprise AI governance portfolio demonstrating risk assessment, accountability, decision-making, controls, and oversight across the AI lifecycle."
   >
   <meta property="og:type" content="website">
 
@@ -99,8 +99,24 @@ h1 {
   font-size: 1.1rem;
 }
     
-    .hero-actions {
+.dashboard-feature {
+  max-width: 680px;
+  margin: 32px auto 0;
+  padding: 28px 32px;
   text-align: center;
+  background-color: var(--charcoal);
+  border: 1px solid rgba(217, 218, 208, 0.18);
+  border-radius: 8px;
+}
+
+.dashboard-feature h2 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.dashboard-feature p {
+  margin: 0 auto 20px;
+  font-size: 1rem;
 }
 
     .button {
@@ -134,14 +150,29 @@ h1 {
       font-size: 2rem;
     }
     
-    .section-title {
-  text-align: center;
+.section-title {
+  max-width: 760px;
+  margin: 0 auto 10px;
+  text-align: left;
 }
 
-   .section-intro {
+.section-intro {
   max-width: 760px;
   margin: 0 auto 28px;
-  text-align: center;
+  text-align: left;
+}
+    .portfolio-addresses {
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+
+.portfolio-addresses ul {
+  margin: 16px 0 0;
+  padding-left: 22px;
+}
+
+.portfolio-addresses li {
+  margin-bottom: 8px;
 }
 
    .grid {
@@ -177,37 +208,36 @@ h1 {
   margin: 0 auto 24px;
   font-size: 1.05rem;
 }
-    .card {
-      display: flex;
-      flex-direction: column;
-      min-height: 228px;
-      height: 100%;
-      padding: 22px;
-      background-color: var(--charcoal);
-      border: 1px solid rgba(217, 218, 208, 0.18);
-      border-radius: 8px;
-    }
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  height: 100%;
+  padding: 18px 22px;
+  background-color: var(--charcoal);
+  border: 1px solid rgba(217, 218, 208, 0.18);
+  border-radius: 8px;
+}
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
 
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      line-height: 1.5;
-    }
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
 
-    .card p {
-      flex: 1;
-      margin: 0 0 16px;
-      font-size: 0.95rem;
-    }
+.card h3 a {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+}
 
-    .card a {
-      display: inline-block;
-      align-self: flex-start;
-      margin-top: auto;
-      color: var(--gold);
-      font-weight: 700;
-      text-decoration: none;
-    }
+.card h3 a:hover {
+  text-decoration: underline;
+}
 
     .card a:hover {
       text-decoration: underline;
@@ -228,14 +258,7 @@ h1 {
     footer a:hover {
       text-decoration: underline;
     }
-.dashboard-note {
-  margin: 10px auto 0;
-  font-size: 0.75rem;
-  line-height: 1.2;
-  font-style: italic;
-  text-align: center;
-  white-space: nowrap;
-}
+
    @media (max-width: 600px) {
   .site-nav {
     justify-content: flex-start;
@@ -281,94 +304,100 @@ h1 {
     <h1>Enterprise AI Governance Portfolio</h1>
 
 <p class="intro">
-  Illustrates how organizations govern and use AI responsibly, make informed decisions, manage risk, and maintain accountability.
+ A practical enterprise AI governance portfolio demonstrating risk assessment, accountability, decision-making, controls, and oversight across the AI lifecycle.
 </p>
 
-<div class="hero-actions">
+<section class="dashboard-feature" aria-labelledby="dashboard-feature-title">
+  <h2 id="dashboard-feature-title">Interactive Governance Dashboard</h2>
+
+  <p>
+    Explore AI risk views for Executive Leadership, the AI Governance Committee,<br>
+    and Business and Technology Owners.
+  </p>
+
   <a
     class="button"
     href="dashboards/AI-Governance-Decision-Dashboard-Final.html"
   >
-    Open Interactive Governance Dashboard
+    Open Interactive Dashboard
   </a>
-
-  <p class="dashboard-note">
-    Executive, business, and operational governance reporting
-  </p>
-</div>
+</section>
 
 </div>
 </header>
 
 <main id="artifacts">
-    <div class="container">
-   <h2 class="section-title">Portfolio Artifacts</h2>
+  <div class="container">
+
+    <section class="portfolio-addresses" aria-labelledby="portfolio-addresses-title">
+      <h2 id="portfolio-addresses-title">What This Portfolio Addresses</h2>
+
+      <ul>
+        <li>Unapproved or unknown AI use</li>
+        <li>Unclear ownership and decision authority</li>
+        <li>Inconsistent risk assessment</li>
+        <li>Weak governance over AI adoption</li>
+        <li>Limited leadership visibility into AI risk</li>
+      </ul>
+    </section>
+
+    <h2 class="section-title">Portfolio Artifacts</h2>
 
       <p class="section-intro">
         Select an artifact to review the governance framework.
       </p>
 
       <div class="grid">
-        <article class="card">
-          <h3>AI Governance Policy</h3>
-          <p>Establishes requirements, responsibilities, and accountability for the authorized and responsible use of AI.</p>
-          <a href="artifacts/Policy.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Policy.html">AI Governance Policy</a></h3>
+    <p>Sets the requirements and accountability for approved, responsible AI use.</p>
+  </article>
 
-        <article class="card">
-          <h3>Governance Architecture</h3>
-          <p>Defines governance roles, authority, oversight, and reporting structure.</p>
-          <a href="artifacts/Governance-Architecture.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Governance-Architecture.html">Governance Architecture</a></h3>
+    <p>Defines who decides, oversees, and is accountable.</p>
+  </article>
 
-        <article class="card">
-          <h3>Operating Model</h3>
-          <p>Shows how governance inputs, decisions, and monitoring operate as a continuous cycle.</p>
-          <a href="artifacts/Operating-Model.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Operating-Model.html">Operating Model</a></h3>
+    <p>Connects governance decisions, ownership, monitoring, and escalation into one cycle.</p>
+  </article>
 
-        <article class="card">
-          <h3>Governance Workflow</h3>
-          <p>End-to-end intake, assessment, approval, monitoring, and escalation process.</p>
-          <a href="artifacts/Workflow.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Workflow.html">Governance Workflow</a></h3>
+    <p>Moves AI use cases from intake through approval, monitoring, and retirement.</p>
+  </article>
 
-        <article class="card">
-          <h3>Risk Assessment</h3>
-          <p>Risk scenarios, ratings, controls, residual risk, and governance decisions.</p>
-          <a href="artifacts/Risk-Assessment.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Risk-Assessment.html">Risk Assessment</a></h3>
+    <p>Evaluates AI risk and defines the controls required for approval.</p>
+  </article>
 
-        <article class="card">
-          <h3>Exceptions and Escalation</h3>
-          <p>Requirements for documenting, approving, monitoring, and escalating exceptions.</p>
-          <a href="artifacts/Exceptions-and-Escalation.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Exceptions-and-Escalation.html">Exceptions and Escalation</a></h3>
+    <p>Governs how policy deviations are reviewed, escalated, and resolved.</p>
+  </article>
 
-        <article class="card">
-          <h3>Control and Framework Crosswalk</h3>
-          <p>Traceability between portfolio controls, NIST AI RMF, and NIST CSF.</p>
-          <a href="artifacts/Control-and-Framework-Crosswalk.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Control-and-Framework-Crosswalk.html">Control Crosswalk</a></h3>
+    <p>Aligns controls to regulations, standards, and industry best practices.</p>
+  </article>
 
-        <article class="card">
-          <h3>AI Governance Dashboard</h3>
-          <p>Governance reporting views for executive, business, and operational oversight.</p>
-          <a href="artifacts/AI-Governance-Dashboard.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/AI-Governance-Dashboard.html">AI Governance Risk Dashboard</a></h3>
+    <p>Summarizes risk, control status, business impact, and required actions.</p>
+  </article>
 
-        <article class="card">
-          <h3>Decision Record</h3>
-          <p>Documented decision, rationale, conditions, ownership, and follow-up.</p>
-          <a href="artifacts/Decision-Record.html">View artifact</a>
-        </article>
+  <article class="card">
+    <h3><a href="artifacts/Decision-Record.html">Decision Record</a></h3>
+    <p>Documents the decision, rationale, conditions, and next steps.</p>
+  </article>
 
-        <article class="card">
-          <h3>References</h3>
-          <p>Framework sources and supporting governance references.</p>
-          <a href="artifacts/References.html">View artifact</a>
-        </article>
-           </div>
+  <article class="card">
+    <h3><a href="artifacts/References.html">References</a></h3>
+    <p>Lists the authoritative materials used to develop and support the portfolio.</p>
+  </article>
+</div>
 
 
       <section class="about" id="about">
