@@ -86,7 +86,7 @@ The decision must be reassessed when there is:
 - [AI Risk Assessment](Risk-Assessment.md)
 - [Control Crosswalk](Control-and-Framework-Crosswalk.md)
 - [Governance Workflow](Workflow.md)
-- [AI Governance Dashboard](AI-Governance-Dashboard.md)
+- [AI Governance Risk Dashboard](AI-Governance-Dashboard.md)
 - [Exceptions and Escalation Process](Exceptions-and-Escalation.md)
 
 ## **References**

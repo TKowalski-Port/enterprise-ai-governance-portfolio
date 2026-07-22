@@ -1,7 +1,7 @@
 ---
 layout: artifact
-title: AI Governance Executive Dashboard
-audience: Board | Executive Leadership
+title: AI Governance Risk Dashboard
+audience: Board, Executive Leadership, AI Governance Committee, Business and Technology Owners, and Control Owners
 classification: Public
 assessment_period: 12 months
 data_status: Illustrative
@@ -12,19 +12,19 @@ data_status: Illustrative
 Summarizes the current risk, control status, business impact, and governance decision for the Enterprise AI Assistant use case.
 
 ## **Scope**  
-Covers the current risk, control status, governance decision, and required management actions for the Enterprise AI Assistant use case over the 12-month assessment period.
+Covers the Enterprise AI Assistant use case, associated governance controls, risk scenarios, decision status, and required actions over the 12-month assessment period.
 
 ## **Status Summary**
 
 | **Area** | **Status** | **Position** |
 |---|---|---|
-| Decision State | 🟡 Deferred | Approval deferred pending control implementation and validation |
+| Decision State | 🟡 Deferred | Deferred pending control implementation and validation |
 | Inherent Risk | 🔴 High | Assessed without credit for planned controls |
 | Current Risk | 🔴 High | Required controls not yet implemented or validated |
 | Target Residual Risk | 🟡 Pending | Medium, contingent on control validation |
 | High Inherent Risks | 🔴 3 of 5 | AI-01, AI-03, AI-05 |
 | Medium Inherent Risks | 🟡 2 of 5 | AI-02, AI-04 |
-| Required Controls Validated | 🔴 0 of 5 | AI-C01 through AI-C05 not yet operating as intended |
+| Required Controls Validated | 🔴 0 of 5 | AI-C01 through AI-C05 not yet validated |
 | Confirmed Restricted or Personal Data Exposure | 🟢 None Established | No confirmed disclosure of restricted or personal data |
 | Human Review | 🟡 Pending | Mandatory before approval or publication |
 
@@ -41,7 +41,7 @@ Unapproved use of a public AI service involving nonpublic policy content was ide
 
 | **Priority Matter** | **Business Exposure** | **Required Action** | **Owner** |
 |---|---|---|---|
-| Unapproved AI use involving nonpublic policy content | Loss of control over sensitive information; potential legal, security, privacy, and reputational harm | Complete implementation and validation of AI-C01 through AI-C05 | AI Governance Committee |
+| Unapproved AI use involving nonpublic policy content | Loss of control over sensitive information; potential legal, security, privacy, and reputational harm | Complete implementation and validation of AI-C01 through AI-C05 | Control Owners |
 | Current risk (High) is outside tolerance | Governance, compliance, and control exposure; reported to the Board for awareness | Validate required controls and complete reassessment before reconsideration | GRC |
 | Human review not yet operational | Risk of unvalidated or unauthorized content entering controlled documents | Embed independent human review and validation before approval or publication | Document or Policy Owner |
 
