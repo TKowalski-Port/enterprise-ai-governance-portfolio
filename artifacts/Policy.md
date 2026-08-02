@@ -7,6 +7,7 @@ policy_owner: Executive Leadership
 approved_by: Executive Leadership
 approval_date: 2026-04-01
 effective_date: 2026-04-01
+version: 1.0
 review_cycle: Annual
 supersedes: N/A
 ---
