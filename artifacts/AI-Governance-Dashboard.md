@@ -14,6 +14,16 @@ Summarizes the current risk, control status, business impact, and governance dec
 ## **Scope**  
 Covers the Enterprise AI Assistant use case, associated governance controls, risk scenarios, decision status, and required actions over the 12-month assessment period.
 
+## **Executive Interpretation**
+
+> - Current risk is High because AI use and generated content are not yet fully governed.
+> - Three of five risk scenarios are rated High; none of the five required controls are validated.
+> - Exposures affect reputation, finances, legal oblications, operations, and digital trust.
+> - The use case is deferred and reported to the Board because current risk exceeds tolerance.
+> - Target residual risk is Medium after controls are validated and human review is in place.
+
+[Explore the Interactive AI Governance Dashboard](../dashboards/AI-Governance-Decision-Dashboard-Final.html)
+
 ## **Status Summary**
 
 | **Area** | **Status** | **Position** |
@@ -65,18 +75,12 @@ Unapproved use of a public AI service involving nonpublic policy content was ide
 | AI-C04 — Document Change Governance | 🔴 Not Yet Validated | Protects approved control intent and document integrity |
 | AI-C05 — Monitoring and Exception Management | 🔴 Not Yet Validated | Identifies emerging risk and enables reassessment, escalation, or retirement |
 
-## **Executive Interpretation**
-
-- Current risk is High because AI use and generated content are not yet fully governed.
-- Three of five risk scenarios (AI-01, AI-03, AI-05) are individually rated High; none of the five required controls are yet validated.
-- The principal business exposures affect reputation, financial performance, legal obligations, operations, and digital trust.
-- The use case remains deferred until required controls are implemented and validated, and is reported to the Board for awareness because current risk is High and outside tolerance.
-- Target state is Medium residual risk, achieved only when required controls are validated, tolerance and control performance targets are met, and human review and approval are retained for controlled documents.
-
 ## **Related Artifacts**
+- [Interactive AI Governance Dashboard](../dashboards/AI-Governance-Decision-Dashboard-Final.html)
 - [AI Risk Assessment](Risk-Assessment.md)
 - [Control Crosswalk](Control-and-Framework-Crosswalk.md)
 - [Governance Workflow](Workflow.md)
+  
 
 ## **References**
 
