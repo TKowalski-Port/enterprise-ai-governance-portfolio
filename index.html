@@ -192,7 +192,47 @@ h1 {
 .portfolio-addresses li {
   margin-bottom: 8px;
 }
-
+.domain-group {
+  max-width: 760px;
+  margin: 0 auto 20px;
+  padding: 22px 24px;
+  background-color: var(--charcoal);
+  border: 1px solid rgba(188, 163, 110, 0.4);
+  border-radius: 8px;
+}
+.group-title {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+.group-subtitle {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  color: rgba(217, 218, 208, 0.65);
+}
+.model-citation {
+  max-width: 760px;
+  margin: 4px auto 20px;
+  font-size: 0.8rem;
+  color: rgba(217, 218, 208, 0.55);
+  font-style: italic;
+}
+.reference-line {
+  max-width: 760px;
+  margin: 0 auto 20px;
+  padding: 14px 20px;
+  background-color: var(--charcoal);
+  border: 1px solid rgba(217, 218, 208, 0.18);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.reference-line a {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+.reference-line a:hover { text-decoration: underline; }
+    
    .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -365,62 +405,80 @@ h1 {
     </section>
 
     <h2 class="section-title">Portfolio Artifacts</h2>
-
 <p class="section-intro">
-        Governance structures, workflows, risk assessments, and decision controls for responsible AI adoption. Start with the Policy, then the Operating Model.
+  Artifacts are organized under NIST AI RMF 1.0's four functions, Govern, Map, Measure, and Manage, showing where each governance control sits across the AI lifecycle.
 </p>
 
-      <div class="grid">
-  <article class="card">
-    <h3><a href="artifacts/Policy.html">AI Governance Policy</a></h3>
-    <p>Sets the requirements and accountability for approved, responsible AI use.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/Governance-Architecture.html">Governance Architecture</a></h3>
-    <p>Defines who decides, oversees, and is accountable.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/Operating-Model.html">Operating Model</a></h3>
-    <p>Connects governance decisions, ownership, monitoring, and escalation into one cycle.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/Workflow.html">Governance Workflow</a></h3>
-    <p>Moves AI use cases from intake through approval, monitoring, and retirement.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/Risk-Assessment.html">Risk Assessment</a></h3>
-    <p>Evaluates AI risk and defines the controls required for approval.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/Exceptions-and-Escalation.html">Exceptions and Escalation</a></h3>
-    <p>Governs how policy deviations are reviewed, escalated, and resolved.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/Control-and-Framework-Crosswalk.html">Control Crosswalk</a></h3>
-    <p>Aligns controls to regulations, standards, and industry best practices.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/AI-Governance-Dashboard.html">AI Governance Risk Dashboard</a></h3>
-    <p>Summarizes risk, control status, business impact, and required actions.</p>
-  </article>
-
-  <article class="card">
-    <h3><a href="artifacts/Decision-Record.html">Decision Record</a></h3>
-    <p>Records the decision, rationale, conditions, and matters reported to the Board.</p>
-  </article>
-
-<article class="card">
-  <h3><a href="artifacts/References.html">Governance Reference</a></h3>
-  <p>Defines risk scoring, thresholds, escalation criteria, and supporting frameworks.</p>
-</article>
+<div class="domain-group">
+  <h3 class="group-title">Govern</h3>
+  <p class="group-subtitle">Cross-cutting, spans the organization.</p>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="artifacts/Policy.html">AI Governance Policy</a></h3>
+      <p>Sets the requirements and accountability for approved, responsible AI use.</p>
+    </article>
+    <article class="card">
+      <h3><a href="artifacts/Governance-Architecture.html">Governance Architecture</a></h3>
+      <p>Defines who decides, oversees, and is accountable.</p>
+    </article>
+    <article class="card">
+      <h3><a href="artifacts/Operating-Model.html">Operating Model</a></h3>
+      <p>Connects governance decisions, ownership, monitoring, and escalation into one cycle.</p>
+    </article>
+    <article class="card">
+      <h3><a href="artifacts/Control-and-Framework-Crosswalk.html">Control Crosswalk</a></h3>
+      <p>Establishes the control requirements used to govern AI risk across applicable standards and obligations.</p>
+    </article>
+  </div>
 </div>
+
+<div class="domain-group">
+  <h3 class="group-title">Map</h3>
+  <p class="group-subtitle">Frames the AI system.</p>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="artifacts/Workflow.html">Governance Workflow</a></h3>
+      <p>Frames AI use cases, stakeholders, lifecycle activities, and governance requirements before risk decisions are made.</p>
+    </article>
+  </div>
+</div>
+
+<div class="domain-group">
+  <h3 class="group-title">Measure</h3>
+  <p class="group-subtitle">Assesses and benchmarks risk.</p>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="artifacts/Risk-Assessment.html">Risk Assessment</a></h3>
+      <p>Identifies, evaluates, and prioritizes AI risks and required controls.</p>
+    </article>
+    <article class="card">
+      <h3><a href="artifacts/AI-Governance-Dashboard.html">AI Governance Risk Dashboard</a></h3>
+      <p>Monitors AI risk, control status, business impact, and required actions.</p>
+    </article>
+  </div>
+</div>
+
+<div class="domain-group">
+  <h3 class="group-title">Manage</h3>
+  <p class="group-subtitle">Treats risk, records decisions.</p>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="artifacts/Exceptions-and-Escalation.html">Exceptions and Escalation</a></h3>
+      <p>Governs how policy deviations are reviewed, escalated, and resolved.</p>
+    </article>
+    <article class="card">
+      <h3><a href="artifacts/Decision-Record.html">Decision Record</a></h3>
+      <p>Documents AI risk decisions, rationale, conditions, and accountability.</p>
+    </article>
+  </div>
+</div>
+
+<p class="model-citation">National Institute of Standards and Technology. (2023). Artificial Intelligence Risk Management Framework (AI RMF 1.0).</p>
+
+<p class="reference-line">
+  <a href="artifacts/References.html">Reference</a>: Defines risk scoring, thresholds, escalation criteria, and supporting frameworks.
+</p>
+
 
 
 <section class="about" id="about">
