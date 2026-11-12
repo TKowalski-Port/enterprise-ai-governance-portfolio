@@ -18,7 +18,7 @@ Covers the Enterprise AI Assistant use case, associated governance controls, ris
 
 > - Current risk is High because AI use and generated content are not yet fully governed.
 > - Three of five risk scenarios are rated High; none of the five required controls are validated.
-> - Exposures affect reputation, finances, legal oblications, operations, and digital trust.
+> - Exposures affect reputation, finances, legal obligations, operations, and digital trust.
 > - The use case is deferred and reported to the Board because current risk exceeds tolerance.
 > - Target residual risk is Medium after controls are validated and human review is in place.
 
